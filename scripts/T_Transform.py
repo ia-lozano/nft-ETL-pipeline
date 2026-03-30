@@ -26,6 +26,9 @@ dataset["name"] = dataset["name"].apply(normalize_name)
 #Removing annoying characters to avoid SQL problems
 dataset["name"] = dataset["name"].apply(lambda x: re.sub(r"[^A-Za-z0-9]", "", x))
 
+#Fixing dates, so mySql gets the right data type
+dataset["date"] = pd.to_datetime(dataset["date"])
+
 #Rewritting dataset
 dataset.to_csv("processed/final_dataset.csv", index=False)
 
