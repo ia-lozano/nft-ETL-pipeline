@@ -31,8 +31,8 @@ dataset["date"] = pd.to_datetime(dataset["date"])
 
 #Removing duplcated names (character name must be unique), so this line
 # removes double-scraped characters
-dataset.drop_duplicates(subset=["name"])
-
+dataset["name"] = dataset["name"].str.strip()
+dataset = dataset.drop_duplicates(subset=["name"])
 
 #Rewritting dataset
 dataset.to_csv("processed/final_dataset.csv", index=False)
