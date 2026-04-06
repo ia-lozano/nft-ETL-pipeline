@@ -7,7 +7,9 @@ SCRIPTS = [
     "scripts/E_Extract.py",
     "scripts/Update_raw_file.py",
     "scripts/T_Transform.py",
+    # Commented out to avoid the "hey wehere is the password?" error.
     #"scripts/L_Load.py",
+    # Commented out to avoid sending potentially broken pipelines to GitHub.
     #"scripts/commit_to_GitHub.py",
 ]
 

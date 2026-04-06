@@ -26,9 +26,6 @@ dataset["name"] = dataset["name"].apply(normalize_name)
 #Removing annoying characters to avoid SQL problems
 dataset["name"] = dataset["name"].apply(lambda x: re.sub(r"[^A-Za-z0-9]", "", x))
 
-#Fixing dates, so mySql gets the right data type / doesn't actually work xd
-dataset["date"] = pd.to_datetime(dataset["date"])
-
 #Removing duplcated names (character name must be unique), so this line
 # removes double-scraped characters
 dataset["name"] = dataset["name"].str.strip()

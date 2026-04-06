@@ -3,7 +3,7 @@ import subprocess
 #Pushing changes to master branch
 commands = [
     ["git", "add", "."],
-    ["git", "commit", "-m", "updating"],
+    ["git", "commit", "-m", "removed useless lines"],
     ["git", "push", "-u", "origin", "master"]
 ]
 
