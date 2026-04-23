@@ -108,6 +108,7 @@ def nft_list_extractor(website: str) -> pd.DataFrame:
     # Give us time to watch the scraped window
     time.sleep(20)
     print(f'Scraping finished in {end_time - start_time:.4f}')
+    #driver.quit()
 
     return df
 
