@@ -43,7 +43,7 @@ Load to MySQL
 # Installation
 
 ## MacOS / Linux
-python3 -m venv .venv 
+python3 -m venv .venv <br>
 source .venv/bin/activate
 
 ## Windows
@@ -65,5 +65,4 @@ Run: python scripts/pipeline.py
 ## Load stage is optional and requires:
 - local MySQL instance
 - DB_PASSWORD environment variable
-
 
