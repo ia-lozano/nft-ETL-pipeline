@@ -47,19 +47,19 @@ python3 -m venv .venv <br>
 source .venv/bin/activate
 
 ## Windows
-python -m venv .venv 
+python -m venv .venv <br>
 .venv\Scripts\activate
 
 Run: pip install -r requirements.txt
 
 ## Export your local MySQL password:
 
-Mac/Linux:
-export DB_PASSWORD='your_password'
-Windows:
+Mac/Linux:<br>
+export DB_PASSWORD='your_password'<be>
+Windows:<br>
 set DB_PASSWORD=your_password
 
-cd to project folder
+cd to project folder<br>
 Run: python scripts/pipeline.py
 
 ## Load stage is optional and requires:
