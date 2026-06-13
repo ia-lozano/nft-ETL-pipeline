@@ -3,14 +3,17 @@ import sys
 import time
 from pathlib import Path
 
+#Location independency
+BASE = Path(__file__).parent
+
 SCRIPTS = [
-    "scripts/E_Extract.py",
-    "scripts/Update_raw_file.py",
-    "scripts/T_Transform.py",
+    BASE/"E_Extract.py",
+    BASE/"Update_raw_file.py",
+    BASE/"T_Transform.py",
     # Commented out to avoid the "hey wehere is the password?" error.
-    #"scripts/L_Load.py",
+    #BASE/"L_Load.py",
     # Commented out to avoid sending potentially broken pipelines to GitHub.
-    #"scripts/commit_to_GitHub.py",
+    #BASE/"commit_to_GitHub.py",
 ]
 
 def run(script: str):
@@ -24,7 +27,7 @@ def run(script: str):
 
     if result.returncode !=0:
         print(f"Ooops, something when wrong when running {script} terminating pipeline...")
-        exit(1)
+        sys.exit(1)
 
 for script in SCRIPTS:
     run(script)

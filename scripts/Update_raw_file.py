@@ -1,10 +1,13 @@
 import pandas as pd
-import numpy as np
 from pathlib import Path
 
 #Scanning raw folder for new files
 raw_folder = Path("raw")
 raw_files = list(raw_folder.glob("*.csv"))
+if not raw_files:
+    raise FileNotFoundError(
+        "No CSV files found in raw/"
+    )
 df_dummy = pd.DataFrame()
 
 for file in raw_files:

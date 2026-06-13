@@ -17,6 +17,7 @@ def normalize_name(name:str) -> str:
         if char.isascii():
             fixed_name += char
         else:
+            # O(n2) behavior, keep an eye on this.
             fixed_name += str(ord(char))
     return fixed_name.replace(" ", "")
 
@@ -26,7 +27,7 @@ dataset["name"] = dataset["name"].apply(normalize_name)
 #Removing annoying characters to avoid SQL problems
 dataset["name"] = dataset["name"].apply(lambda x: re.sub(r"[^A-Za-z0-9]", "", x))
 
-#Removing duplcated names (character name must be unique), so this line
+#Removing duplcated names (character name + price pair must be unique), so this line
 # removes double-scraped characters
 dataset["name"] = dataset["name"].str.strip()
 dataset = dataset.drop_duplicates(subset=["name", "price"])
@@ -34,4 +35,4 @@ dataset = dataset.drop_duplicates(subset=["name", "price"])
 #Rewritting dataset
 dataset.to_csv("processed/final_dataset.csv", index=False)
 
-
+print('Succesfully transformed')

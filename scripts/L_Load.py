@@ -10,11 +10,17 @@ import pandas as pd
 #Getting local exported pwd, resets after terminal session ends
 password = os.getenv("DB_PASSWORD")
 if not password:
-    raise ValueError("DB_PASSWORD not set")
+    raise EnvironmentError(
+        "\nDB_PASSWORD not found.\n"
+        "Run:\n"
+        "export DB_PASSWORD='your_password'\n"
+        "Then execute again.")
 
 #Creating engine with a previously created MySQL local DB
-engine = create_engine(f"mysql+pymysql://root:{password}@localhost:3306/nft_db")
+engine = create_engine(f"mysql+pymysql://root:{password}@localhost:3306/mir4_DB")
 
 #Pushing dataset to database
 dataset = pd.read_csv("processed/final_dataset.csv")
 dataset.to_sql("nft_data", engine, if_exists="replace", index=False)
+
+engine.dispose()

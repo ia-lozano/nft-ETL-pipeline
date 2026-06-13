@@ -1,0 +1,6 @@
+pandas
+selenium
+webdriver_manager
+urllib3
+sqlalchemy
+pimysql
