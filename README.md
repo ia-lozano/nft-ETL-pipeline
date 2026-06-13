@@ -15,24 +15,30 @@ will be pushed to a local MySQL instance.
 - Pandas
 - Selenium
 
-# Structure
+# Project Structure
+
+```plaintext
 mir4project/
-├── analytics/
-├── processed/
-├── raw/
-├── scripts/
-├── tests/
+├── analytics/      # SQL, notebooks and analysis
+├── processed/      # merged and transformed datasets
+├── raw/            # scraped CSV files
+├── scripts/        # ETL scripts
+├── tests/          # unit tests (future me's problem)
 ├── README.md
 └── requirements.txt
+```
 
 # Pipeline Workflow
-Extract (Selenium)
+
+```plaintext
+Extract (Selenium) 
+↓ 
+Merge Raw CSVs 
 ↓
-Merge Raw CSVs
-↓
-Transform / Deduplicate
-↓
+Transform / Deduplicate 
+↓ 
 Load to MySQL
+```
 
 # Installation
 
