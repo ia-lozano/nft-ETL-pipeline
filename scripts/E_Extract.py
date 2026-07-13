@@ -62,6 +62,8 @@ def nft_list_extractor(website: str) -> pd.DataFrame:
         power_score = []
         rate = []
         date = []
+        # Generates date once, then appends to the dataset.
+        current_date = datetime.now()
 
         # Extracting data for each nft character and creating the DataFrame
         for character in characters:
@@ -93,7 +95,6 @@ def nft_list_extractor(website: str) -> pd.DataFrame:
                 print(f'Character scraped: {name_string} - {class_string}')
 
                 # Getting date
-                current_date = datetime.now()
                 date.append(current_date.strftime("%Y-%m-%d"))
 
             except:
@@ -122,13 +123,17 @@ def generate_nft_csv(data: pd.DataFrame):
         - No output, the function creates the csv file only
     '''
     #You'll need to rename it manually if you need multiple scrapes from the same day
-    data.to_csv(f'raw/nftlist_{datetime.now().strftime("%Y-%m-%d")}.csv', index=False)
+    # Added H/M/S to date (same day scan overwrites the previous file)
+    data.to_csv(f'raw/nftlist_{datetime.now().strftime("%Y-%m-%d %H-%M-%S")}.csv', index=False)
     print(f'csv file created:\n {data.head()}')
 
 def main():
+    print('Generating DataFrame')
     df = nft_list_extractor('https://xdraco.com/nft')
+    print('Exporting data to CSV.')
     generate_nft_csv(df)
 
 if __name__ == '__main__':
+    print('Initializing Extractor......')
     main()
     print('process ended.')

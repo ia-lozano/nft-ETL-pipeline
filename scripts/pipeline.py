@@ -25,9 +25,12 @@ def run(script: str):
     print(result.stdout)
     print(result.stderr)
 
-    if result.returncode !=0:
-        print(f"Ooops, something when wrong when running {script} terminating pipeline...")
+    if result.returncode !=0:   
+        print(f"Ooops, something when wrong went running {script} terminating pipeline...")
         sys.exit(1)
 
+print('Executing Pipeline...')
 for script in SCRIPTS:
     run(script)
+
+print('Pipeline finalized successfully.')

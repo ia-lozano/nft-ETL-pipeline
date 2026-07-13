@@ -10,7 +10,9 @@ commands = [
     ["git", "push", "-u", "origin", BRANCH]
 ]
 
-for cmd in commands:
-    subprocess.run(cmd, check=True)
+if __name__ == '__main__':
+    print('Pushing to GitHub')
+    for cmd in commands:
+        subprocess.run(cmd, check=True)
 
-print("Push completed.")
+    print("Push completed.")
