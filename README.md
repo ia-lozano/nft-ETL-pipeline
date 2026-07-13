@@ -10,7 +10,7 @@ will be pushed to a local MySQL instance.
 - Pushes the dataset to a local MySQL instance.
 
 # TechStack
-- Python
+- Python 3.14
 - SQLAlchemy
 - Pandas
 - Selenium

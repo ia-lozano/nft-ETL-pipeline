@@ -24,3 +24,5 @@ dataset = pd.read_csv("processed/final_dataset.csv")
 dataset.to_sql("nft_data", engine, if_exists="replace", index=False)
 
 engine.dispose()
+
+print('Data successfully exported to your local DB.')
