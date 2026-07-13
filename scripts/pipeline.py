@@ -3,6 +3,8 @@ import sys
 import time
 from pathlib import Path
 
+start_time = time.time()
+
 #Location independency
 BASE = Path(__file__).parent
 
@@ -33,4 +35,6 @@ print('Executing Pipeline...')
 for script in SCRIPTS:
     run(script)
 
-print('Pipeline finalized successfully.')
+end_time = time.time()
+execution_time = end_time - start_time
+print(f'Pipeline finalized successfully in {execution_time} seconds.')
